@@ -15,7 +15,6 @@ var connector = new builder.ChatConnector({
 server.post('/api/messages', connector.listen());
 
 var bot = new builder.UniversalBot(connector);
-
 bot.on('conversationUpdate', (message) => {
     if(firstTime){
         if (message.membersAdded) {
