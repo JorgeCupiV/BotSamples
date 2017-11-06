@@ -32,8 +32,12 @@ bot.on('conversationUpdate', (message) => {
         bot.send(msg);
         bot.beginDialog(message.address, '/');
     }
+    else firstTime = true;
 });
 ```
+
+We also have set firstTime to false because if the user refreshes te page where the bot is hosted (in case we are using the Bot's webchat channel). The bot won't start the conversation anymore.
+
 ## FAQ ##
 - Do we have to change our root dialog?
 Not really, just by adding this conversationUpdate method our bot is ready to start a conversation.

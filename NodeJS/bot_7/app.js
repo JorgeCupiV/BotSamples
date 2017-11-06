@@ -25,6 +25,7 @@ bot.on('conversationUpdate', (message) => {
         bot.send(hello);
         bot.beginDialog(message.address, '*:/');
     }
+    else firstTime = true;
 });
 
 bot.dialog('/', [
