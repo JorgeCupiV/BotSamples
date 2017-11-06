@@ -24,15 +24,13 @@ So, that would mean our message "Hi, I am Bo...." will be sent twice to the user
 ```javascript
 var firstUser = true;
 bot.on('conversationUpdate', (message) => {
-    if(firstUser){
+    if (message.membersAdded && firstUser) {
         firstUser = false;
-        if (message.membersAdded) {
-            var msg = new builder.Message()
-                .address(message.address)
-                .text("Hi, I am Bot. What can I do today for you?");
-            bot.send(msg);
-            bot.beginDialog(message.address, '/');
-        }
+        var msg = new builder.Message()
+            .address(message.address)
+            .text("Hi, I am Bot. What can I do today for you?");
+        bot.send(msg);
+        bot.beginDialog(message.address, '/');
     }
 });
 ```

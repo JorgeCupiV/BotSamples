@@ -6,7 +6,6 @@ server.listen(3978, function(){
     console.log("Server ready");
 });
 
-var firstTime = true;
 var connector = new builder.ChatConnector({
     appId : process.env.MsAppId,
     appPassword : process.env.MsAppPassword
@@ -15,16 +14,16 @@ var connector = new builder.ChatConnector({
 server.post('/api/messages', connector.listen());
 
 var bot = new builder.UniversalBot(connector);
+
+var firstTime = true;
 bot.on('conversationUpdate', (message) => {
-    if(firstTime){
-        if (message.membersAdded) {
-            firstTime = false;
-            const hello = new builder.Message()
-                .address(message.address)
-                .text("Hi, I am Bot. I can answer your question");
-            bot.send(hello);
-            bot.beginDialog(message.address, '*:/');
-        }
+    if (message.membersAdded && firstTime) {
+        firstTime = false;
+        const hello = new builder.Message()
+            .address(message.address)
+            .text("Hi, I am Bot. I can answer your question");
+        bot.send(hello);
+        bot.beginDialog(message.address, '*:/');
     }
 });
 
