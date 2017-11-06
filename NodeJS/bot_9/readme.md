@@ -1,4 +1,4 @@
-## Looping over a bot dialog ##
+# Looping over a bot dialog #
 We can leverage what we learned in the 'recalling dialogs' sample (bot_8) to simulate a loop and allow our users to write multiple entries within a single scope. Some scenarios we could think of are:
 - Our user is pickin items to buy from a list we offer (shopping)
 - Our user is filling a form that has multiple entries with the same format (filling passenger information when buying tickets)
