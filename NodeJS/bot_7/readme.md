@@ -22,10 +22,10 @@ As we can see, there's an event called [conversationUpdate](https://docs.botfram
 So, that would mean our message "Hi, I am Bo...." will be sent twice to the user. What can we do to stop this? Simply defining a boolean outside and asking for it:
 
 ```javascript
-var firstUser = true;
+var firstTime = true;
 bot.on('conversationUpdate', (message) => {
-    if (message.membersAdded && firstUser) {
-        firstUser = false;
+    if (message.membersAdded && firstTime) {
+        firstTime = false;
         var msg = new builder.Message()
             .address(message.address)
             .text("Hi, I am Bot. What can I do today for you?");
