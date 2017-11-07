@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26430.12
+VisualStudioVersion = 15.0.26606.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bot01-HelloWorld", "Bot01-HelloWorld\Bot01-HelloWorld.csproj", "{6AC9A6A6-C79E-46C3-8FA7-BD1BF2787258}"
 EndProject
@@ -9,6 +9,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		readme.md = readme.md
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bot02-AddingAttachments", "Bot02-AddingAttachments\Bot02-AddingAttachments.csproj", "{75081501-99BE-40B0-B07B-3A47096D87B3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -20,6 +22,10 @@ Global
 		{6AC9A6A6-C79E-46C3-8FA7-BD1BF2787258}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6AC9A6A6-C79E-46C3-8FA7-BD1BF2787258}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6AC9A6A6-C79E-46C3-8FA7-BD1BF2787258}.Release|Any CPU.Build.0 = Release|Any CPU
+		{75081501-99BE-40B0-B07B-3A47096D87B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{75081501-99BE-40B0-B07B-3A47096D87B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{75081501-99BE-40B0-B07B-3A47096D87B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{75081501-99BE-40B0-B07B-3A47096D87B3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
