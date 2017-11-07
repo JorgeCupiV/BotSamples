@@ -24,6 +24,7 @@ namespace Bot01_HelloWorld
             {
                 HandleSystemMessage(activity);
             }
+
             var response = Request.CreateResponse(HttpStatusCode.OK);
             return response;
         }
