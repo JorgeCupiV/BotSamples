@@ -119,9 +119,11 @@ Once the bot has replied to our user, it will just wait for another message to a
 
 ## Testing the bot ##
 If we press run / debug our solution in Visual Studio, a browser will open displaying the content from the default.html file:
+
 ![testing our new bot](../../images/bot01csharp1.PNG)
 
 We are going to use the Bot Emulator app to test our bots from now on. If you don't have it yet you can [download it from here](https://docs.microsoft.com/en-us/bot-framework/debug-bots-emulator).
 Once you install the emulator, simply copy the localhost url and port exposed in your browser to your emulator:
+
 ![testing our new bot](../../images/bot01csharp2.PNG)
 
