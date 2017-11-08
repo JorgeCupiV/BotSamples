@@ -144,3 +144,25 @@ case "hero":
     };
     return heroCard.ToAttachment();
 ```
+
+## Building a Thumbnail card ##
+The [Thumbnail card](https://docs.microsoft.com/en-us/dotnet/api/microsoft.bot.connector.thumbnailcard?view=botconnector-3.11.1) gives us the same experience as a Hero Card with the exception that its image is displayed as a small thumbnail in the upper left side of the card instead of being displayed as a large one:
+
+```csharp
+case "thumbnail":
+    ThumbnailCard thumbnailCard= new ThumbnailCard
+    {
+        Title = "Microsoft",
+        Subtitle = "Official website",
+        Text = "Buy the new Xbox now",
+        Images =
+        {
+            new CardImage("https://ncmedia.azureedge.net/ncmedia/2017/03/cropped-microsoft_logo_element-192x192.png")
+        },
+        Buttons =
+        {
+            new CardAction("openUrl","Go to site",null,"https://www.microsoft.com/es-co/")
+        }
+    };
+    return thumbnailCard.ToAttachment();
+```
