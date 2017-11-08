@@ -118,6 +118,16 @@ namespace Bot03_RichCards.Dialogs
                         }
                     };
                     return receiptCard.ToAttachment();
+                case "signin":
+                    SigninCard signinCard = new SigninCard
+                    {
+                        Text = "Sign in with your account",
+                        Buttons =
+                        {
+                            new CardAction("openUrl","Go to site",null,"https://www.microsoft.com/es-co/")
+                        }
+                    };
+                    return signinCard.ToAttachment();
                 default:
                     return null;
             }

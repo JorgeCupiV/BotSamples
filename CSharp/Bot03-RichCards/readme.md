@@ -168,7 +168,7 @@ case "thumbnail":
 ```
 
 ## Building a Receipt card ##
-As its name says, a [Receipt card](https://docs.microsoft.com/en-us/dotnet/api/microsoft.bot.connector.receiptcard) displays our user a receipt with the detail of the items they bought. We have some interesting parameters to observe:
+As its name says, a [Receipt card](https://docs.microsoft.com/en-us/dotnet/api/microsoft.bot.connector.receiptcard?view=botconnector-3.11.1) displays our user a receipt with the detail of the items they bought. We have some interesting parameters to observe:
 - Title, the title for receipt
 - Facts, a list of Fact objects useful to write extra lines in the receipt such as a Order number, date, payment method, among others
 - Items, a list of ReceiptItems objects that have a price, title, quantity and image attributes. The quantity and image are optional for some channels
@@ -202,4 +202,19 @@ case "receipt":
         }
     };
     return receiptCard.ToAttachment();
+```
+## Building a Signin card ##
+The [Signin card](https://docs.microsoft.com/en-us/dotnet/api/microsoft.bot.connector.signincard?view=botconnector-3.11.1) is pretty simple: It just has a text and button attributes so the user can click the button and navigate to a page to sign in:
+
+```csharp
+case "signin":
+    SigninCard signinCard = new SigninCard
+    {
+        Text = "Sign in with your account",
+        Buttons =
+        {
+            new CardAction("openUrl","Go to site",null,"https://www.microsoft.com/es-co/")
+        }
+    };
+    return signinCard.ToAttachment();
 ```
