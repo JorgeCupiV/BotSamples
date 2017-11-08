@@ -99,3 +99,26 @@ case "animation":
     return card.ToAttachment();
 ```
 > NOTE: If you insert and image of gif at the Media object, the Image object will not be displayed.
+
+## Building an audio card ##
+An [Audio card](https://docs.microsoft.com/en-us/dotnet/api/microsoft.bot.connector.audiocard?view=botconnector-3.11.1) has similar attributes to an Animation Card, in fact they're almost identical. There's only one extra attribute for the Audio Card:
+- Aspect, which is the aspect ratio of the thumbnail/media placeholder and its allowed values are "16x9" and "9x16"
+
+```csharp
+case "audio":
+AudioCard audioCard = new AudioCard
+{
+    Title = "Title",
+    Subtitle = "Subtitle",
+    Text = "Random text",
+    Media =
+    {
+        new MediaUrl("http://ccrma.stanford.edu/~jos/wav/gtr-nylon22.wav")
+    },
+    Buttons =
+    {
+        new CardAction("ImBack","First button")
+    }
+};
+return audioCard.ToAttachment();
+```

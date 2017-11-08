@@ -31,7 +31,7 @@ namespace Bot03_RichCards.Dialogs
             switch (activityText)
             {
                 case "animation":
-                    AnimationCard card = new AnimationCard
+                    AnimationCard animationCard = new AnimationCard
                     {
                         Title = "Title",
                         Subtitle = "Subtitle",
@@ -45,7 +45,23 @@ namespace Bot03_RichCards.Dialogs
                             new CardAction("ImBack","First button")
                         }
                     };
-                    return card.ToAttachment();
+                    return animationCard.ToAttachment();
+                case "audio":
+                    AudioCard audioCard = new AudioCard
+                    {
+                        Title = "Title",
+                        Subtitle = "Subtitle",
+                        Text = "Random text",
+                        Media =
+                        {
+                            new MediaUrl("http://ccrma.stanford.edu/~jos/wav/gtr-nylon22.wav")
+                        },
+                        Buttons =
+                        {
+                            new CardAction("ImBack","First button")
+                        }
+                    };
+                    return audioCard.ToAttachment();
                 default:
                     return null;
             }
