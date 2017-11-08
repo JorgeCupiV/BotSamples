@@ -101,24 +101,46 @@ case "animation":
 > NOTE: If you insert and image of gif at the Media object, the Image object will not be displayed.
 
 ## Building an audio card ##
-An [Audio card](https://docs.microsoft.com/en-us/dotnet/api/microsoft.bot.connector.audiocard?view=botconnector-3.11.1) has similar attributes to an Animation Card, in fact they're almost identical. There's only one extra attribute for the Audio Card:
+An [Audio card](https://docs.microsoft.com/en-us/dotnet/api/microsoft.bot.connector.audiocard?view=botconnector-3.11.1) has similar attributes to an Animation Card, in fact they're almost identical as there's only one extra attribute for the Audio Card:
 - Aspect, which is the aspect ratio of the thumbnail/media placeholder and its allowed values are "16x9" and "9x16"
 
 ```csharp
 case "audio":
-AudioCard audioCard = new AudioCard
-{
-    Title = "Title",
-    Subtitle = "Subtitle",
-    Text = "Random text",
-    Media =
+    AudioCard audioCard = new AudioCard
     {
-        new MediaUrl("http://ccrma.stanford.edu/~jos/wav/gtr-nylon22.wav")
-    },
-    Buttons =
+        Title = "Title",
+        Subtitle = "Subtitle",
+        Text = "Random text",
+        Media =
+        {
+            new MediaUrl("http://ccrma.stanford.edu/~jos/wav/gtr-nylon22.wav")
+        },
+        Buttons =
+        {
+            new CardAction("ImBack","First button")
+        }
+    };
+    return audioCard.ToAttachment();
+```
+## Building a Hero card ##
+A [Hero card](https://docs.microsoft.com/en-us/dotnet/api/microsoft.bot.connector.herocard?view=botconnector-3.11.1) helps us displaying a large image and present the user with a few buttons to make choices. It comes handy when showing things to buy for our use.
+
+As with the Audio card, a Hero card is similar to an animation card, but this time instead of a Media object it has an Image object which is a list of CardImage objects (the place where you put the image(s) you want to display:
+```csharp
+case "hero":
+    HeroCard heroCard = new HeroCard
     {
-        new CardAction("ImBack","First button")
-    }
-};
-return audioCard.ToAttachment();
+        Title = "Microsoft",
+        Subtitle = "Official website",
+        Text = "Buy the new Xbox now",
+        Images =
+        {
+            new CardImage("https://ncmedia.azureedge.net/ncmedia/2017/03/cropped-microsoft_logo_element-192x192.png")
+        },
+        Buttons =
+        {
+            new CardAction("openUrl","Go to site",null,"https://www.microsoft.com/es-co/")
+        }
+    };
+    return heroCard.ToAttachment();
 ```

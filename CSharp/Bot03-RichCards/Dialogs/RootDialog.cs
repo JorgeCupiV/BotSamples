@@ -62,6 +62,22 @@ namespace Bot03_RichCards.Dialogs
                         }
                     };
                     return audioCard.ToAttachment();
+                case "hero":
+                    HeroCard heroCard = new HeroCard
+                    {
+                        Title = "Microsoft",
+                        Subtitle = "Official website",
+                        Text = "Buy the new Xbox now",
+                        Images =
+                        {
+                            new CardImage("https://ncmedia.azureedge.net/ncmedia/2017/03/cropped-microsoft_logo_element-192x192.png")
+                        },
+                        Buttons =
+                        {
+                            new CardAction("openUrl","Go to site",null,"https://www.microsoft.com/es-co/")
+                        }
+                    };
+                    return heroCard.ToAttachment();
                 default:
                     return null;
             }
