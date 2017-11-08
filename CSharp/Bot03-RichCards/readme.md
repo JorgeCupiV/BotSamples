@@ -6,10 +6,10 @@ There are eight types of rich cards:
 - Adaptive card, that contains a combination of images, text, speech, buttons and input fields
 - [Animation card](https://docs.botframework.com/en-us/node/builder/chat-reference/classes/_botbuilder_d_.animationcard.html), that contains GIFs or short videos
 - [Audio card](https://docs.botframework.com/en-us/node/builder/chat-reference/classes/_botbuilder_d_.audiocard.html), that contains an audio file
-- [Thumbnail card](https://docs.botframework.com/en-us/node/builder/chat-reference/classes/_botbuilder_d_.thumbnailcard.html
-), that contains a single image, buttons and text
 - [Hero card](https://docs.botframework.com/en-us/node/builder/chat-reference/classes/_botbuilder_d_.herocard.html
 ), that contains a large image, buttons and text
+- [Thumbnail card](https://docs.botframework.com/en-us/node/builder/chat-reference/classes/_botbuilder_d_.thumbnailcard.html
+), that contains a single image, buttons and text
 - [Receipt card](https://docs.botframework.com/en-us/node/builder/chat-reference/classes/_botbuilder_d_.receiptcard.html
 ), that displays a receipt to the user
 - [Signin card](https://docs.botframework.com/en-us/node/builder/chat-reference/classes/_botbuilder_d_.signincard.html
@@ -165,4 +165,41 @@ case "thumbnail":
         }
     };
     return thumbnailCard.ToAttachment();
+```
+
+## Building a Receipt card ##
+As its name says, a [Receipt card](https://docs.microsoft.com/en-us/dotnet/api/microsoft.bot.connector.receiptcard) displays our user a receipt with the detail of the items they bought. We have some interesting parameters to observe:
+- Title, the title for receipt
+- Facts, a list of Fact objects useful to write extra lines in the receipt such as a Order number, date, payment method, among others
+- Items, a list of ReceiptItems objects that have a price, title, quantity and image attributes. The quantity and image are optional for some channels
+- Tax, a text to define the tax value of the receipt
+- Total, a text to define the total value of the receipt
+- VAT, a text to define the vat value of the receipt, it displays only in few channels
+- Buttons, a list of CardActions objects to help the user take a decission regarding payments such as going to their bank website, a payment portal or others
+
+```csharp
+case "receipt":
+    ReceiptCard receiptCard = new ReceiptCard
+    {
+        Title = "Your Microsoft receipt",
+        Facts =
+        {
+            new Fact("Payment method", "AMEX 123***"),
+            new Fact("Date", "Nov. 8th, 2017")
+        },
+        Items =
+        {
+            new ReceiptItem("Xbox One X","2TB Edition, Comes with 2 controllers",null,new CardImage("https://images.techhive.com/images/article/2015/03/xbox-logo-100571878-large.jpg"),"350","1"),
+            new ReceiptItem("Microsoft Surface Book","16GB RAM, 2TB SSD",null,new CardImage("https://ncmedia.azureedge.net/ncmedia/2017/03/cropped-microsoft_logo_element-192x192.png"),"1000","1"),
+            new ReceiptItem("Office 365 Home","Up to 5 users",null,new CardImage("http://www.duprofessionaled.com/wp-content/uploads/2015/09/o365-logo.jpg"),"50","2"),
+        },
+        Tax = "12%",
+        Vat = "16%",
+        Total = "1450",
+        Buttons =
+        {
+            new CardAction("openUrl","Pay now",null,"https://www.microsoft.com/es-co/")
+        }
+    };
+    return receiptCard.ToAttachment();
 ```
