@@ -224,5 +224,21 @@ Our final rich card, a [Video card](https://docs.microsoft.com/en-us/dotnet/api/
 -  The Aspect attribute that can be set to "16:9" or "4:3" determining the aspect ratio of the video to be displayed.
 
 ```csharp
-
+case "video":
+    VideoCard videoCard = new VideoCard
+    {
+        Title = "Video sample",
+        Subtitle = "Displaying an mp4 video",
+        Text = "Video description goes here",
+        Media =
+        {
+            new MediaUrl("http://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4")
+        },
+        Buttons =
+        {
+            new CardAction("ImBack","First button")
+        }
+    };
+    return videoCard.ToAttachment();
 ```
+
