@@ -128,6 +128,22 @@ namespace Bot03_RichCards.Dialogs
                         }
                     };
                     return signinCard.ToAttachment();
+                case "video":
+                    VideoCard videoCard = new VideoCard
+                    {
+                        Title = "Video sample",
+                        Subtitle = "Displaying an mp4 video",
+                        Text = "Video description goes here",
+                        Media =
+                        {
+                            new MediaUrl("http://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4")
+                        },
+                        Buttons =
+                        {
+                            new CardAction("ImBack","First button")
+                        }
+                    };
+                    return videoCard.ToAttachment();
                 default:
                     return null;
             }

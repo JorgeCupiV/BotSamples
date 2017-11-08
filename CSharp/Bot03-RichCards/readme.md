@@ -218,3 +218,11 @@ case "signin":
     };
     return signinCard.ToAttachment();
 ```
+
+## Building a Video card ##
+Our final rich card, a [Video card](https://docs.microsoft.com/en-us/dotnet/api/microsoft.bot.connector.videocard?view=botconnector-3.11.1) works similar as an animation or audio card. Shares the same attributes with the only difference being:
+-  The Aspect attribute that can be set to "16:9" or "4:3" determining the aspect ratio of the video to be displayed.
+
+```csharp
+
+```
