@@ -242,3 +242,41 @@ case "video":
     return videoCard.ToAttachment();
 ```
 
+## Using an animation card to play sounds or videos? ##
+Yes! It is possible to reproduce audio or video files in an animation card given that they share attributes:
+
+```csharp
+case "videoAnimation":
+    AnimationCard videoAnimationCard = new AnimationCard
+    {
+        Title = "Video sample",
+        Subtitle = "Displaying an mp4 video",
+        Text = "Video description goes here",
+        Media =
+        {
+            new MediaUrl("http://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4")
+        },
+        Buttons =
+        {
+            new CardAction("ImBack","First button")
+        }
+    };
+    return videoAnimationCard.ToAttachment();
+case "audioAnimation":
+    AnimationCard audioAnimationCard = new AnimationCard
+    {
+        Title = "Title",
+        Subtitle = "Subtitle",
+        Text = "Random text",
+        Image = new ThumbnailUrl("https://ncmedia.azureedge.net/ncmedia/2017/03/cropped-microsoft_logo_element-192x192.png"),
+        Media =
+        {
+            new MediaUrl("http://ccrma.stanford.edu/~jos/wav/gtr-nylon22.wav")
+        },
+        Buttons =
+        {
+            new CardAction("ImBack","First button")
+        }
+    };
+    return audioAnimationCard.ToAttachment();
+```

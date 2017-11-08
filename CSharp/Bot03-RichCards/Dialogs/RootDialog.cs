@@ -144,6 +144,40 @@ namespace Bot03_RichCards.Dialogs
                         }
                     };
                     return videoCard.ToAttachment();
+
+                case "videoAnimation":
+                    AnimationCard videoAnimationCard = new AnimationCard
+                    {
+                        Title = "Video sample",
+                        Subtitle = "Displaying an mp4 video",
+                        Text = "Video description goes here",
+                        Media =
+                        {
+                            new MediaUrl("http://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4")
+                        },
+                        Buttons =
+                        {
+                            new CardAction("ImBack","First button")
+                        }
+                    };
+                    return videoAnimationCard.ToAttachment();
+                case "audioAnimation":
+                    AnimationCard audioAnimationCard = new AnimationCard
+                    {
+                        Title = "Title",
+                        Subtitle = "Subtitle",
+                        Text = "Random text",
+                        Image = new ThumbnailUrl("https://ncmedia.azureedge.net/ncmedia/2017/03/cropped-microsoft_logo_element-192x192.png"),
+                        Media =
+                        {
+                            new MediaUrl("http://ccrma.stanford.edu/~jos/wav/gtr-nylon22.wav")
+                        },
+                        Buttons =
+                        {
+                            new CardAction("ImBack","First button")
+                        }
+                    };
+                    return audioAnimationCard.ToAttachment();
                 default:
                     return null;
             }
